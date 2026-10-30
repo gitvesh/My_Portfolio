@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { type MouseEvent, type FormEvent, useState } from "react";
 import { ArrowUpRight, Check, Clock, Copy, Mail } from "./icons";
 
 const engagementTypes = [
@@ -44,7 +44,7 @@ export function ContactForm() {
     )}&body=${encodeURIComponent(body)}`;
   }
 
-  function handleCopyDetails(event: React.MouseEvent<HTMLButtonElement>) {
+  function handleCopyDetails(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     const formEl = (event.currentTarget.closest("form") as HTMLFormElement) || null;
     let name = "Partner";

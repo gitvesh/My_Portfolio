@@ -1,9 +1,21 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2022: true, node: true },
-  parser: "@typescript-eslint/parser",
-  parserOptions: { ecmaVersion: "latest", sourceType: "module", ecmaFeatures: { jsx: true } },
-  extends: ["eslint:recommended"],
+  extends: ["next/core-web-vitals"],
   ignorePatterns: ["node_modules/", ".next/", "build-tmp/", "next-env.d.ts"],
-  overrides: [{ files: ["*.ts", "*.tsx"], rules: { "no-unused-vars": "off" } }],
+  rules: {
+    // TypeScript handles unused variable checking; ESLint rule is redundant and noisy.
+    "no-unused-vars": "off",
+    // The new JSX transform (React 17+) does not require React in scope for JSX.
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+  },
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        // TypeScript already enforces no-unused-vars via strict mode.
+        "@typescript-eslint/no-unused-vars": "off",
+      },
+    },
+  ],
 };
