@@ -1,6 +1,6 @@
 "use client";
 
-import { type MouseEvent, type FormEvent, useState } from "react";
+import React, { useState, type MouseEvent, type FormEvent } from "react";
 import { ArrowUpRight, Check, Clock, Copy, Mail } from "./icons";
 
 const engagementTypes = [
