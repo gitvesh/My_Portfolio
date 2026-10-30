@@ -44,6 +44,7 @@ export function ContactForm() {
     )}&body=${encodeURIComponent(body)}`;
   }
 
+  // Handle copying formatted message to clipboard with direct MouseEvent type
   function handleCopyDetails(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     const formEl = (event.currentTarget.closest("form") as HTMLFormElement) || null;
